@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>nns ai studio — Editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="editor-page">
+<header class="topbar small">
+  <div class="brand"><div class="logo-mini" aria-hidden>
+    <svg width="34" height="34" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#00d0ff"/><stop offset="1" stop-color="#0057d9"/></linearGradient></defs>
+      <rect x="6" y="6" width="108" height="108" rx="18" fill="url(#g2)"/>
+      <text x="50%" y="62%" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="40" fill="#fff">NNS</text>
+    </svg>
+  </div><div class="title">nns ai studio</div></div>
+  <div class="actions">
+    <a class="btn ghost" href="index.html">Home</a>
+    <button class="btn" id="downloadBtn">Download</button>
+    <select id="saveFormat"><option value="png">PNG</option><option value="jpeg">JPG</option></select>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="panel left">
+    <div class="section">
+      <h4>Upload</h4>
+      <input type="file" id="fileInput" accept="image/*">
+      <button class="btn outline" id="loadSample">Load Sample</button>
+      <button class="btn outline" id="clearAll">Clear</button>
+    </div>
+
+    <div class="section">
+      <h4>Filters</h4>
+      <label>Brightness <input type="range" id="brightness" min="0" max="200" value="100"></label>
+      <label>Contrast <input type="range" id="contrast" min="0" max="200" value="100"></label>
+      <label>Saturation <input type="range" id="saturation" min="0" max="200" value="100"></label>
+      <label>Blur <input type="range" id="blur" min="0" max="10" value="0"></label>
+      <div class="row"><button class="btn small" id="hdr">HDR</button><button class="btn small" id="vintage">Vintage</button><button class="btn small" id="bw">B&amp;W</button></div>
+    </div>
+
+    <div class="section">
+      <h4>Stickers</h4>
+      <div class="stickers" id="stickers">
+        <div class="sticker" data-emoji="⭐">⭐</div>
+        <div class="sticker" data-emoji="❤️">❤️</div>
+        <div class="sticker" data-emoji="🌞">🌞</div>
+        <div class="sticker" data-emoji="✨">✨</div>
+        <div class="sticker" data-emoji="🎉">🎉</div>
+      </div>
+      <label>Size <input id="stickerSize" type="range" min="20" max="400" value="120"></label>
+    </div>
+
+    <div class="section">
+      <h4>Text</h4>
+      <input id="textInput" placeholder="Write text...">
+      <label>Size <input id="textSize" type="range" min="12" max="120" value="36"></label>
+      <label>Color <input id="textColor" type="color" value="#ffffff"></label>
+      <label><input id="textOutline" type="checkbox"> Outline</label>
+      <button class="btn" id="addText">Add Text</button>
+    </div>
+
+    <div class="section">
+      <h4>Draw</h4>
+      <label>Brush <input id="brushSize" type="range" min="1" max="60" value="8"></label>
+      <label>Color <input id="brushColor" type="color" value="#ffeb3b"></label>
+      <div class="row"><button class="btn" id="drawMode">Draw</button><button class="btn" id="eraseMode">Eraser</button><button class="btn" id="clearDraw">Clear</button></div>
+    </div>
+
+    <div class="section">
+      <h4>Background</h4>
+      <button class="btn" id="removeBg">Remove BG (simple)</button>
+      <input type="color" id="bgColor" value="#000000"><button class="btn" id="replaceBg">Replace BG</button>
+    </div>
+  </aside>
+
+  <section class="panel center">
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="900" height="600"></canvas>
+      <canvas id="draw" class="draw" width="900" height="600"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="muted">Click overlays to select. Drag to move.</div>
+      <div class="overlay-controls">
+        <label>X <input id="ox" type="number" value="20"></label>
+        <label>Y <input id="oy" type="number" value="20"></label>
+        <label>W <input id="ow" type="number" value="120"></label>
+        <label>H <input id="oh" type="number" value="120"></label>
+        <label>R <input id="or" type="number" value="0"></label>
+        <button class="btn" id="removeOverlay">Remove</button>
+      </div>
+    </div>
+  </section>
+
+  <aside class="panel right">
+    <div class="section">
+      <h4>Overlays</h4>
+      <ul id="overlayList"></ul>
+    </div>
+    <div class="section">
+      <h4>Export</h4>
+      <label>Format <select id="format"><option value="png">PNG</option><option value="jpeg">JPG</option></select></label>
+      <label>JPEG Quality <input id="jpgQuality" type="range" min="0.1" max="1" step="0.1" value="0.92"></label>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">© 2025 nns ai studio — Demo demo</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
