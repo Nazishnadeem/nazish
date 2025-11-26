@@ -1,0 +1,27 @@
+:root{--blue:#0d47a1;--pink:#ff4fbe;--card:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:linear-gradient(135deg,var(--blue),var(--pink));color:#042234}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:rgba(255,255,255,0.06)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:50%;animation:spin 6s linear infinite}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.brand-text{color:white;font-weight:700}
+.nav a{color:white;text-decoration:none;margin-left:12px}
+.hero{padding:60px 20px;text-align:center}
+.lead{color:rgba(255,255,255,0.9)}
+.btn{background:white;color:var(--blue);padding:10px 14px;border-radius:10px;border:0;cursor:pointer;margin:6px}
+.btn.ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,0.12)}
+.container{max-width:1100px;margin:18px auto;padding:12px}
+.editor-wrap{display:grid;grid-template-columns:300px 1fr;gap:12px;max-width:1200px;margin:18px auto}
+.panel{background:rgba(255,255,255,0.92);padding:12px;border-radius:12px}
+.canvas-wrap{background:linear-gradient(180deg,#f8fbff,#eef6ff);padding:12px;border-radius:12px;display:flex;justify-content:center;align-items:center;position:relative}
+canvas{background:white;border-radius:8px;max-width:100%;height:auto}
+.draw-layer{position:absolute;pointer-events:none}
+.file-btn{background:var(--blue);color:white;padding:8px 12px;border-radius:8px;display:inline-block;cursor:pointer}
+.small{padding:8px 10px;border-radius:6px;border:0;background:#eef6ff;cursor:pointer;margin:4px}
+.stickers{display:flex;gap:8px;margin-top:8px}
+.sticker{padding:6px;background:white;border-radius:8px;cursor:pointer;box-shadow:0 6px 18px rgba(3,33,85,0.06)}
+.muted{color:#345a72}
+.row{display:flex;gap:8px;align-items:center}
+.footer{padding:20px;text-align:center;color:white}
+@media(max-width:900px){.editor-wrap{grid-template-columns:1fr}.topbar{flex-direction:column}}
