@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Editor - NNS</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="topbar small">
+  <div class="brand"><img src="assets/logo.png" class="logo"><div class="brand-text"><strong>NNS</strong> <span class="muted">AI Studio</span></div></div>
+  <nav class="nav"><a href="index.html">Home</a><a href="tools.html">Tools</a><a href="editor.html">Editor</a></nav>
+</header>
+
+<div class="editor-wrap">
+  <aside class="panel left">
+    <label class="file-btn">Upload Image <input id="fileInput" type="file" accept="image/*"></label>
+
+    <h4 id="remove">Remove Background</h4>
+    <button id="btnRemove" class="btn small">Remove BG (heuristic)</button>
+    <p class="muted">For best results use Transparent export or connect Remove.bg API (optional)</p>
+
+    <h4 id="enhance">Enhance</h4>
+    <button id="btnEnhance" class="btn small">Enhance (sharpen)</button>
+
+    <h4 id="filters">Filters</h4>
+    <div class="row">
+      <button id="btnCartoon" class="small">Cartoon</button>
+      <button id="btnBW" class="small">B & W</button>
+      <button id="btnHDR" class="small">HDR</button>
+    </div>
+
+    <h4 id="text">Text & Stickers</h4>
+    <input id="textInput" placeholder="Write text">
+    <button id="addText" class="small">Add Text</button>
+    <div class="stickers" id="stickers">
+      <div class="sticker" data-emoji="⭐">⭐</div>
+      <div class="sticker" data-emoji="❤️">❤️</div>
+      <div class="sticker" data-emoji="✨">✨</div>
+    </div>
+
+    <h4 id="brush">Magic Brush</h4>
+    <label>Brush Size <input id="brushSize" type="range" min="1" max="80" value="12"></label>
+    <label>Brush Color <input id="brushColor" type="color" value="#ffeb3b"></label>
+    <div class="row"><button id="drawMode" class="small">Draw</button><button id="eraseMode" class="small">Eraser</button><button id="clearDraw" class="small">Clear Draw</button></div>
+
+    <h4 id="resize">Resize</h4>
+    <select id="preset">
+      <option value="custom">Custom</option>
+      <option value="1080x1080">Instagram 1080x1080</option>
+      <option value="1280x720">YouTube 1280x720</option>
+      <option value="1200x628">Facebook 1200x628</option>
+    </select>
+    <button id="applyResize" class="small">Apply Resize</button>
+
+    <h4 id="compress">Compression</h4>
+    <label>Quality <input id="quality" type="range" min="0.2" max="1" step="0.05" value="0.92"></label>
+    <button id="btnCompress" class="small">Preview Compress</button>
+
+    <h4 id="color">Color Correction</h4>
+    <button id="autoColor" class="small">Auto Color</button>
+
+    <h4 id="export">Export</h4>
+    <select id="format"><option value="png">PNG</option><option value="jpeg">JPG</option></select>
+    <button id="download" class="btn">Download</button>
+  </aside>
+
+  <main class="panel center">
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="1000" height="700"></canvas>
+      <canvas id="draw" class="draw-layer" width="1000" height="700"></canvas>
+    </div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
